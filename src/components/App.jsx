@@ -11,7 +11,9 @@ import { fetchMovie } from '../actions'
   return {
     user: store.user.user,
     userFetched: store.user.fetched,
-    movies: store.movie.data.data
+    movies: store.movie.data.data,
+    moviesFetching: store.movie.fetching,
+    moviesFetched: store.movie.fetched
   }
 })
 
@@ -21,14 +23,27 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { user, movies} = this.props
+    const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
     return (
      <div style={{textAlign: 'center'}}>
-        <h1>Hello</h1>
-        <h3>Current User</h3>
-        <div>{JSON.stringify(user)}</div>
-        <h3>Movies</h3>
-        <div>{JSON.stringify(movies, null, 3)}</div>
+       <h1>Hello</h1>
+       <h3>Current User</h3>
+       <div>{JSON.stringify(user)}</div>
+        { moviesFetching &&
+          <div>loading... </div>
+        } {!moviesFetching && moviesFetched &&
+          <div>
+            <h3>Movies</h3>
+            <ul>
+              {
+                movies.results.map((movie) => {
+                  return (<li key={movie.id}>{movie.original_title}</li>);
+                })
+              }
+            </ul>
+          </div>
+        }
+
     </div>
     );
   }
