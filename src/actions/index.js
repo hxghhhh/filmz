@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from '../config'
 export function inc(byN) {
   return {
     type: 'INC',
@@ -30,6 +31,6 @@ export function fetchMockUser() {
 export function fetchMovie(){
   return {
     type:'FETCH_MOVIE',
-    payload: axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed')
+    payload: axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key='+config.movieApiKey)
   }
 }
