@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import Movie from './Movie.jsx';
+import Movies from './Movies.jsx';
 
 const styles = {
   headline: {
@@ -18,8 +18,8 @@ const styles = {
 
 /*
   connect(a,b)
-  - a is for getting store values as prop (store >> props for this component)
-  - b
+  - a = is for getting store values as prop (store >> props for this component)
+  - b = ?
 */
 @connect((store) => {
   return {
@@ -35,11 +35,6 @@ export default class App extends React.Component {
   componentWillMount() {
     injectTapEventPlugin();
     this.props.dispatch(fetchNowPlayingMovie())
-    this.handleChange()
-  }
-
-  handleChange(value) {
-    console.log('hello');
   }
 
   render() {
@@ -47,28 +42,8 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider>
       <Tabs>
-        <Tab label="Item One" >
-          {/* <div style={{textAlign: 'center'}}>
-            <h1>Hello</h1>
-            <h3>Current User</h3>
-            <div>{JSON.stringify(user)}</div>
-             { moviesFetching &&
-               <div>loading... </div>
-             } {!moviesFetching && moviesFetched &&
-               <div>
-                 <h3>Movies</h3>
-
-                 <div>
-                   {
-                     movies.results.map((movie) => {
-                       return (<div key={movie.id}>{movie.original_title}</div>);
-                     })
-                   }
-                 </div>
-               </div>
-             }
-         </div> */}
-         <Movie/>
+        <Tab label="Now Playing" >
+          <Movies {...this.props}/>
         </Tab>
         <Tab label="Item Two" >
           <div>
