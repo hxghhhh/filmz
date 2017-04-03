@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMovie } from '../actions'
+import { fetchNowPlayingMovie } from '../actions/movie.actions'
 
 /*
   connect(a,b)
@@ -19,7 +19,7 @@ import { fetchMovie } from '../actions'
 
 export default class App extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchMovie())
+    this.props.dispatch(fetchNowPlayingMovie())
   }
 
   render() {
