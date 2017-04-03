@@ -1,38 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchNowPlayingMovie } from '../actions/movie.actions'
-import {Tabs, Tab} from 'material-ui/Tabs';
-
-
-/*
-  connect(a,b)
-  - a is for getting store values as prop (store >> props for this component)
-  - b
-*/
-@connect((store) => {
-  return {
-    user: store.user.user,
-    userFetched: store.user.fetched,
-    movies: store.movie.data.data,
-    moviesFetching: store.movie.fetching,
-    moviesFetched: store.movie.fetched
-  }
-})
+import config from '../config';
 
 export default class Movie extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchNowPlayingMovie())
-    this.handleChange()
-  }
-
-  handleChange(value) {
-    console.log('hello');
+    //this.props.dispatch(fetchPoster(this.props.))
   }
 
   render() {
-    const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
+    console.log(this.props)
+    const { original_title, id, poster_path} = this.props;
     return (
-          <div key={movie.id}>{movie.original_title}</div>
+          <div>
+          <img src={config.posterPath+'/w500/'+poster_path}
+            width={250}
+          />
+          </div>
     );
   }
 }

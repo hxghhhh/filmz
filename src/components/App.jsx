@@ -7,15 +7,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Movies from './Movies.jsx';
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-};
-
 /*
   connect(a,b)
   - a = is for getting store values as prop (store >> props for this component)
@@ -32,8 +23,12 @@ const styles = {
 })
 
 export default class App extends React.Component {
-  componentWillMount() {
+  constructor(props){
+    super(props);
     injectTapEventPlugin();
+  }
+
+  componentWillMount() {
     this.props.dispatch(fetchNowPlayingMovie())
   }
 
@@ -42,27 +37,14 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider>
       <Tabs>
-        <Tab label="Now Playing" >
+        <Tab label="Now Playing">
           <Movies {...this.props}/>
         </Tab>
-        <Tab label="Item Two" >
-          <div>
-            <h2 style={styles.headline}>Tab Two</h2>
-            <p>
-              This is another example tab.
-            </p>
-          </div>
+        <Tab label="By Something">
+          <Movies {...this.props}/>
         </Tab>
-        <Tab
-          label="onActive"
-          data-route="/home"
-        >
-          <div>
-            <h2 style={styles.headline}>Tab Three</h2>
-            <p>
-              This is a third example tab.
-            </p>
-          </div>
+        <Tab label="Search">
+          <Movies {...this.props}/>
         </Tab>
     </Tabs>
   </MuiThemeProvider>
