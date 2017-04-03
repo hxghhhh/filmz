@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNowPlayingMovie } from '../actions/movie.actions'
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Movie from './Movie.jsx'
+import LinearProgress from 'material-ui/LinearProgress';
 
 export default class Movies extends React.Component {
   render() {
@@ -10,7 +11,9 @@ export default class Movies extends React.Component {
     return (
           <div>
              { moviesFetching &&
-               <div>loading... </div>
+               <div>
+                 <LinearProgress mode="indeterminate" />
+               </div>
              } {!moviesFetching && moviesFetched &&
                <div style={{display:'flex',
                           flexDirection:'row',

@@ -36,18 +36,28 @@ export default class App extends React.Component {
     const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
     return (
       <MuiThemeProvider>
-      <Tabs>
-        <Tab label="Now Playing">
-          <Movies {...this.props}/>
-        </Tab>
-        <Tab label="By Something">
-          <Movies {...this.props}/>
-        </Tab>
-        <Tab label="Search">
-          <Movies {...this.props}/>
-        </Tab>
-    </Tabs>
-  </MuiThemeProvider>
+        <Tabs inkBarStyle={{background: 'blue'}} tabItemContainerStyle={{backgroundColor:'white'}}>
+          <Tab label="Now Playing" style={styles.tab}>
+            <Movies {...this.props}/>
+          </Tab>
+          <Tab label="By Something" style={styles.tab}>
+            <Movies {...this.props}/>
+          </Tab>
+          <Tab label="Genre" style={styles.tab}>
+            <Movies {...this.props}/>
+          </Tab>
+          <Tab label="Trending" style={styles.tab}>
+            <Movies {...this.props}/>
+          </Tab>
+          <Tab label="Search" style={styles.tab}>
+            <Movies {...this.props}/>
+          </Tab>
+      </Tabs>
+    </MuiThemeProvider>
     );
   }
+}
+
+var styles = {
+  tab: {backgroundColor:'transparent', color:'black'}
 }
