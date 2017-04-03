@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import App from './components/App.jsx';
 import store from './store';
+import 'react-select/dist/react-select.css';
 
 import { inc, dec } from './actions'
 

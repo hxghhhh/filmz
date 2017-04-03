@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Movies from './Movies.jsx';
+import Filter from './Filter.jsx';
 
 /*
   connect(a,b)
@@ -38,6 +39,7 @@ export default class App extends React.Component {
       <MuiThemeProvider>
         <Tabs inkBarStyle={{background: 'blue'}} tabItemContainerStyle={{backgroundColor:'white'}}>
           <Tab label="Now Playing" style={styles.tab}>
+            <Filter/>
             <Movies {...this.props}/>
           </Tab>
           <Tab label="By Something" style={styles.tab}>
