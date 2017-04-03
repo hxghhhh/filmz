@@ -34,16 +34,15 @@ export default class App extends React.Component {
         } {!moviesFetching && moviesFetched &&
           <div>
             <h3>Movies</h3>
-            <ul>
+            <div>
               {
                 movies.results.map((movie) => {
-                  return (<li key={movie.id}>{movie.original_title}</li>);
+                  return (<div key={movie.id}>{movie.original_title}</div>);
                 })
               }
-            </ul>
+            </div>
           </div>
         }
-
     </div>
     );
   }
