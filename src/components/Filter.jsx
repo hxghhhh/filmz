@@ -7,7 +7,8 @@ var styles = {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor:'#F5F5F5'
   }
 }
 

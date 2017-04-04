@@ -9,7 +9,7 @@ export default class Movies extends React.Component {
   render() {
     const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
     return (
-          <div>
+          <div style={{backgroundColor:'#F5F5F5'}}>
              { moviesFetching &&
                <div>
                  <LinearProgress mode="indeterminate" />
