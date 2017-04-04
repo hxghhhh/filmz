@@ -19,7 +19,8 @@ import Filter from './Filter.jsx';
     userFetched: store.user.fetched,
     movies: store.movie.data.data,
     moviesFetching: store.movie.fetching,
-    moviesFetched: store.movie.fetched
+    moviesFetched: store.movie.fetched,
+    filter: store.filter
   }
 })
 
@@ -29,6 +30,21 @@ export default class App extends React.Component {
     injectTapEventPlugin();
   }
 
+  componentWillMount() {
+    const {sort_by, genre, year} = this.props.filter
+    console.log(this.props.filter)
+    this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))
+  }
+
+  componentDidUpdate(prevProps){
+    console.log('updating...')
+    if (this.props.filter !== prevProps.filter) {
+        const {sort_by, genre, year} = this.props.filter
+        console.log(this.props.filter)
+        this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))
+      }
+    }
+    
   render() {
     const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
     return (
