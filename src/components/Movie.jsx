@@ -4,6 +4,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import ActionHeartFilled from 'material-ui/svg-icons/action/favorite';
 import ActionHeart from 'material-ui/svg-icons/action/favorite-border';
+import { saveMovie } from '../actions/user.actions'
 import { connect } from 'react-redux';
 
 var styles = {
@@ -73,6 +74,7 @@ export default class Movie extends React.Component {
                       console.log(this.props)
                       console.log('helpp')
                       console.log(event)
+                      this.props.dispatch(saveMovie(this.props))
                     }}
                     >
                     <ActionHeart />
