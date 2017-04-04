@@ -4,6 +4,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import ActionHeartFilled from 'material-ui/svg-icons/action/favorite';
 import ActionHeart from 'material-ui/svg-icons/action/favorite-border';
+import { connect } from 'react-redux';
 
 var styles = {
   card: {
@@ -38,6 +39,12 @@ var styles = {
   },
 }
 
+@connect((store) => {
+  return {
+    user: store.user
+  }
+})
+
 export default class Movie extends React.Component {
   render() {
     const { original_title,
@@ -61,7 +68,13 @@ export default class Movie extends React.Component {
                 <div style={styles.rating}>{vote_average}/10
                 </div>
                 <div >
-                  <IconButton tooltip="Save Movie!">
+                  <IconButton tooltip="Save Movie!"
+                    onTouchTap={(event)=> {
+                      console.log(this.props)
+                      console.log('helpp')
+                      console.log(event)
+                    }}
+                    >
                     <ActionHeart />
                   </IconButton>
                 </div>
