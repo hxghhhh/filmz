@@ -10,9 +10,6 @@ var styles = {
 }
 
 export default class Movie extends React.Component {
-  componentWillMount() {
-  }
-
   render() {
     const { original_title, id, poster_path} = this.props;
     return (

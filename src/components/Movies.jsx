@@ -18,7 +18,10 @@ export default class Movies extends React.Component {
                <div style={{display:'flex',
                           flexDirection:'row',
                           flexWrap: 'wrap',
-                          justifyContent:'center'}}>
+                          justifyContent:'center',
+                          marginLeft: 20,
+                          marginRight: 20,
+                        }}>
                  { movies.results.map((movie) => {
                     return (<Movie key={movie.id} {...movie}/>);
                   })

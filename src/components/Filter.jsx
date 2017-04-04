@@ -9,8 +9,10 @@ import Dropdown from './Dropdown.jsx'
 
 var styles = {
   card: {
-    padding:5,
-    display: 'flex'
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
   }
 }
 
@@ -75,18 +77,18 @@ export default class Filter extends React.Component {
   render() {
     return (
           <div style={styles.card}>
-          <Dropdown
-            width={100}
-            name={'Year'}
-            options={filter.year}/>
-          <Dropdown
-            width={200}
-            name={'Sort By'}
-            options={filter.sort_by}/>
-          <Dropdown
-            width={300}  
-            name={'Genre'}
-            options={filter.genre}/>
+              <Dropdown
+                width={100}
+                name={'Year'}
+                options={filter.year}/>
+              <Dropdown
+                width={200}
+                name={'Sort By'}
+                options={filter.sort_by}/>
+              <Dropdown
+                width={300}
+                name={'Genre'}
+                options={filter.genre}/>
           </div>
     );
   }

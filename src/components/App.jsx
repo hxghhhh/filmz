@@ -42,16 +42,7 @@ export default class App extends React.Component {
             <Filter/>
             <Movies {...this.props}/>
           </Tab>
-          <Tab label="By Something" style={styles.tab}>
-            <Movies {...this.props}/>
-          </Tab>
-          <Tab label="Genre" style={styles.tab}>
-            <Movies {...this.props}/>
-          </Tab>
-          <Tab label="Trending" style={styles.tab}>
-            <Movies {...this.props}/>
-          </Tab>
-          <Tab label="Search" style={styles.tab}>
+          <Tab label="Favorites" style={styles.tab}>
             <Movies {...this.props}/>
           </Tab>
       </Tabs>
