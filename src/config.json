@@ -1,3 +1,5 @@
 {
-  "movieApiKey": "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+  "baseUrl": "https://api.themoviedb.org/3",
+  "movieApiKey": "a07e22bc18f5cb106bfe4cc1f83ad8ed",
+  "posterPath": "https://image.tmdb.org/t/p"
 }
