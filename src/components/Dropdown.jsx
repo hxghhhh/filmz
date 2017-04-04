@@ -23,11 +23,6 @@ var styles = {
 })
 
 export default class Dropdown extends React.Component {
-  componentWillMount() {
-    //this.props.dispatch(fetchPoster(this.props.))
-    this.props.dispatch(inc(2))
-  }
-
   handleChange(){
     console.log('hello')
   }

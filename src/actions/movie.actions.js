@@ -8,17 +8,13 @@ export function fetchNowPlayingMovie(){
   }
 }
 
-export function fetchFilters(){
+export function fetchFilteredMovie(sort_by='', genre='', year=''){
+  var sort_by_q = (sort_by !== '') ? `sort_by=${sort_by}&` : ''
+  var genre_q = (genre !== '') ? `with_genre=${genre}&` : ''
+  var year_q = (year !== '') ? `primary_release_year=${year}` : ''
+  // console.log(`${config.baseUrl}/discover/movie?api_key=${config.movieApiKey}&${sort_by_q}${genre_q}${year_q}`)
   return {
-    year: [],
-    genre: [
-
-    ],
-    sort_by: [
-      {value:'pop_desc', label: 'Popularity Descending'},
-      {value:'pop_asc', label: 'Popularity Ascending'},
-      {value:'rate_desc', label: 'Rating Descending'},
-      {value:'rate_asc', label: 'Rating Ascending'},
-    ]
+    type:'FETCH_MOVIE',
+    payload: axios.get(`${config.baseUrl}/discover/movie?api_key=${config.movieApiKey}&${sort_by_q}${genre_q}${year_q}`)
   }
 }

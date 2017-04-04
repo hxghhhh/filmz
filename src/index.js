@@ -6,7 +6,7 @@ import App from './components/App.jsx';
 import store from './store';
 import 'react-select/dist/react-select.css';
 
-import { inc, dec } from './actions'
+import { fetchFilteredMovie } from './actions/movie.actions'
 
 store.subscribe(() => {
   console.log("store changed", store.getState());
@@ -38,6 +38,8 @@ store.subscribe(() => {
 //   type:"FOO",
 //   payload: axios.get('https://rydeboard-dev.now.sh/api/rides')
 // })
+
+//store.dispatch(fetchFilteredMovie())
 
 /*
   PS: using promise-middleware forces you to fromat your reducers to matching

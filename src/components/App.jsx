@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchNowPlayingMovie } from '../actions/movie.actions'
+import { fetchNowPlayingMovie, fetchFilteredMovie } from '../actions/movie.actions'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -30,7 +30,8 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchNowPlayingMovie())
+    //this.props.dispatch(fetchNowPlayingMovie())
+    this.props.dispatch(fetchFilteredMovie('popularity.desc','',2016))
   }
 
   render() {

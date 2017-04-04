@@ -45,10 +45,10 @@ var filter = {
     { value: 37, label: "Western"}
   ],
   sort_by: [
-    {value:'pop_desc', label: 'Popularity Descending'},
-    {value:'pop_asc', label: 'Popularity Ascending'},
-    {value:'rate_desc', label: 'Rating Descending'},
-    {value:'rate_asc', label: 'Rating Ascending'},
+    {value:'popularity.desc', label: 'Popularity Descending'},
+    {value:'popularity.asc', label: 'Popularity Ascending'},
+    {value:'vote_average.desc', label: 'Rating Descending'},
+    {value:'vote_average.asc', label: 'Rating Ascending'},
   ]
 }
 
