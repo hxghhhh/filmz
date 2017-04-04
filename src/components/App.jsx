@@ -44,13 +44,13 @@ export default class App extends React.Component {
         this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))
       }
     }
-    
+
   render() {
     const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
     return (
       <MuiThemeProvider>
         <Tabs inkBarStyle={{background: 'blue'}} tabItemContainerStyle={{backgroundColor:'white'}}>
-          <Tab label="Now Playing" style={styles.tab}>
+          <Tab label="Discover" style={styles.tab}>
             <Filter {...this.props}/>
             <Movies {...this.props}/>
           </Tab>

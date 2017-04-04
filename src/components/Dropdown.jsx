@@ -31,10 +31,6 @@ export default class Dropdown extends React.Component {
     } else if (this.props.name === 'Sort By') {
       this.props.dispatch({type:'SET_SORT_BY', payload: value})
     }
-
-    // const {sort_by, genre, year} = this.props.filter
-    // console.log(this.props.filter)
-    // this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))
   }
 
   render() {
