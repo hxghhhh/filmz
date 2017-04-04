@@ -17,7 +17,6 @@ export default class Movie extends React.Component {
           <img src={config.posterPath+'/w500/'+poster_path}
             width={250}
           />
-          <div>Hello</div>
           </div>
     );
   }

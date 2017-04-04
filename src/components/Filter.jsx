@@ -1,10 +1,5 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 import { connect } from 'react-redux';
-import { inc } from '../actions';
-import Select from 'react-select';
 import Dropdown from './Dropdown.jsx'
 
 var styles = {
@@ -54,8 +49,7 @@ var filter = {
 
 @connect((store) => {
   return {
-    filter: store.movie.filter,
-    count: store.count.count
+    filter: store.filter
   }
 })
 
@@ -70,25 +64,29 @@ export default class Filter extends React.Component {
     }
   }
 
-  handleChange(){
-    console.log('hello')
-  }
-
   render() {
+    const {year, sort_by, genre} = this.props.filter
+    console.log(this.props.filter)
     return (
           <div style={styles.card}>
               <Dropdown
-                width={100}
+                width={150}
                 name={'Year'}
-                options={filter.year}/>
+                options={filter.year}
+                value={year}
+              />
               <Dropdown
-                width={200}
+                width={250}
                 name={'Sort By'}
-                options={filter.sort_by}/>
+                options={filter.sort_by}
+                value={sort_by}
+              />
               <Dropdown
                 width={300}
                 name={'Genre'}
-                options={filter.genre}/>
+                options={filter.genre}
+                value={genre}
+              />
           </div>
     );
   }

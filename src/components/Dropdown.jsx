@@ -5,6 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { connect } from 'react-redux';
 import { inc } from '../actions';
 import Select from 'react-select';
+import {fetchFilteredMovie } from '../actions/movie.actions'
 
 var styles = {
   card: {
@@ -17,27 +18,37 @@ var styles = {
 
 @connect((store) => {
   return {
-    filter: store.movie.filter,
-    count: store.count.count
+    filter: store.filter
   }
 })
 
 export default class Dropdown extends React.Component {
-  handleChange(){
-    console.log('hello')
+  handleChange(value) {
+    if (this.props.name === 'Year') {
+      this.props.dispatch({type:'SET_YEAR', payload: value})
+    } else if (this.props.name === 'Genre') {
+      this.props.dispatch({type:'SET_GENRE', payload: value})
+    } else if (this.props.name === 'Sort By') {
+      this.props.dispatch({type:'SET_SORT_BY', payload: value})
+    }
+
+    const {sort_by, genre, year} = this.props.filter
+    console.log(this.props.filter)
+    this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))
   }
 
   render() {
-    const { options, name } = this.props
+    const { options, name, value } = this.props
     return (
           <div style={styles.card}>
               <span>{name}</span>
               <div style={{width: this.props.width}}>
               <Select
-              value="one"
-              options={options}
-              onChange={this.handleChange}
-              clearable={false}
+                value={value}
+                options={options}
+                onChange={(newValue) => {this.handleChange(newValue.value)}}
+                clearable={false}
+                addLabelText={name}
               />
             </div>
           </div>

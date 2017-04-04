@@ -8,9 +8,9 @@ import 'react-select/dist/react-select.css';
 
 import { fetchFilteredMovie } from './actions/movie.actions'
 
-store.subscribe(() => {
-  console.log("store changed", store.getState());
-})
+// store.subscribe(() => {
+//   console.log("store changed", store.getState());
+// })
 
 // Basic actions to understand reducer and action comms
 // store.dispatch(inc(5))
@@ -40,6 +40,9 @@ store.subscribe(() => {
 // })
 
 //store.dispatch(fetchFilteredMovie())
+// store.dispatch({type:'SET_YEAR', payload: 1996})
+// store.dispatch({type:'SET_GENRE', payload: 'Drama'})
+// store.dispatch({type:'SET_SORT_BY', payload: '101'})
 
 /*
   PS: using promise-middleware forces you to fromat your reducers to matching
