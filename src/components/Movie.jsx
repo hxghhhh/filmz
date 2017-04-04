@@ -74,7 +74,14 @@ export default class Movie extends React.Component {
                       console.log(this.props)
                       console.log('helpp')
                       console.log(event)
-                      this.props.dispatch(saveMovie(this.props))
+                      this.props.dispatch(saveMovie({ original_title,
+                              id,
+                              poster_path,
+                              overview,
+                              popularity,
+                              vote_average,
+                              vote_count
+                            }))
                     }}
                     >
                     <ActionHeart />

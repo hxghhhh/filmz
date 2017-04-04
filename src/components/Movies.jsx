@@ -7,14 +7,15 @@ import LinearProgress from 'material-ui/LinearProgress';
 
 export default class Movies extends React.Component {
   render() {
-    const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
+    const { movies, moviesFetching, moviesFetched} = this.props;
+    console.log(movies)
     return (
           <div style={{backgroundColor:'#F5F5F5'}}>
              { moviesFetching &&
                <div>
                  <LinearProgress mode="indeterminate" />
                </div>
-             } {!moviesFetching && moviesFetched &&
+             } {!moviesFetching && moviesFetched && movies.length != 0 &&
                <div style={{display:'flex',
                           flexDirection:'row',
                           flexWrap: 'wrap',
@@ -22,7 +23,7 @@ export default class Movies extends React.Component {
                           marginLeft: 20,
                           marginRight: 20,
                         }}>
-                 { movies.results.map((movie) => {
+                 {movies.results.map((movie) => {
                     return (<Movie key={movie.id} {...movie}/>);
                   })
                  }
