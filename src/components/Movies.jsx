@@ -16,7 +16,12 @@ const styles = {
              justifyContent:'center',
              marginLeft: 20,
              marginRight: 20,
-           }
+           },
+          emptyCollection: {
+            textAlign: 'center',
+            justifyContent: 'center',
+            fontFamily: 'roboto',
+          }
 }
 
 @connect((store) => {
@@ -28,20 +33,23 @@ const styles = {
 export default class Movies extends React.Component {
   render() {
     const { movies, moviesFetching, moviesFetched} = this.props;
+    console.log(movies)
     return (
           <div style={styles.root}>
              { moviesFetching &&
                <div>
                  <LinearProgress mode="indeterminate" />
                </div>
-             } {!moviesFetching && moviesFetched && movies.length != 0 &&
+             } {!moviesFetching && moviesFetched &&
                <div style={styles.movies}>
                  {movies.results.map((movie) => {
                     return (<Movie key={movie.id} {...movie}/>);
                   })
                  }
              </div>
-             }
+           } { !moviesFetching && moviesFetched && movies.results == 0 &&
+             <div style={styles.emptyCollection}> You haven't saved any movies yet!</div>
+           }
          </div>
     );
   }

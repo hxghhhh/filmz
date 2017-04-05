@@ -8,7 +8,8 @@ var styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    backgroundColor:'#F5F5F5'
+    backgroundColor:'#F5F5F5',
+    fontFamily: 'roboto',
   }
 }
 
@@ -41,10 +42,10 @@ var filter = {
     { value: 37, label: "Western"}
   ],
   sort_by: [
-    {value:'popularity.desc', label: 'Popularity Descending'},
-    {value:'popularity.asc', label: 'Popularity Ascending'},
-    {value:'vote_average.desc', label: 'Rating Descending'},
-    {value:'vote_average.asc', label: 'Rating Ascending'},
+    {value:'popularity.desc', label: 'Most Popular'},
+    {value:'popularity.asc', label: 'Least Popular'},
+    {value:'vote_average.desc', label: 'Best Ratings'},
+    {value:'vote_average.asc', label: 'Worst Ratings'},
   ]
 }
 
