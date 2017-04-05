@@ -7,7 +7,8 @@ const initialState = {
     name:null,
     age:null
   },
-  savedMovies:[]
+  savedMovies:[],
+  movieHash: []
 }
 
 export default (state=initialState, action) => {
@@ -25,7 +26,10 @@ export default (state=initialState, action) => {
       break;
     }
     case "SAVE_MOVIE": {
-      return {...state, savedMovies:[...state.savedMovies, action.payload]};
+      return {...state,
+        savedMovies:[...state.savedMovies, action.payload],
+        movieHash: [...state.movieHash, action.payload.id]
+      };
       break;
     }
   }

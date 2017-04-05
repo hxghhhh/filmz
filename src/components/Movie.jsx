@@ -6,6 +6,7 @@ import ActionHeartFilled from 'material-ui/svg-icons/action/favorite';
 import ActionHeart from 'material-ui/svg-icons/action/favorite-border';
 import { saveMovie } from '../actions/user.actions'
 import { connect } from 'react-redux';
+import { red500 } from 'material-ui/styles/colors';
 
 var styles = {
   card: {
@@ -56,6 +57,9 @@ export default class Movie extends React.Component {
             vote_average,
             vote_count
           } = this.props;
+
+    // console.log([1, 2, 3].includes(2))
+    // console.log(this.props.user.movieHash.includes(id))
     return (
           <div style={styles.card}>
             <img style={styles.img}
@@ -68,24 +72,32 @@ export default class Movie extends React.Component {
               <div style={styles.actionBar}>
                 <div style={styles.rating}>{vote_average}/10
                 </div>
-                <div >
-                  <IconButton tooltip="Save Movie!"
-                    onTouchTap={(event)=> {
-                      console.log(this.props)
-                      console.log('helpp')
-                      console.log(event)
-                      this.props.dispatch(saveMovie({ original_title,
-                              id,
-                              poster_path,
-                              overview,
-                              popularity,
-                              vote_average,
-                              vote_count
-                            }))
-                    }}
-                    >
-                    <ActionHeart />
-                  </IconButton>
+                <div>
+                  { this.props.user.movieHash.includes(id) &&
+                    <IconButton tooltip="Save Movie!"
+                       onTouchTap={(event)=> {
+                         // remove movie from collection
+                        // this.props.dispatch(removeMovie())
+                       }}
+                      >
+                      <ActionHeartFilled color={red500} />
+                    </IconButton>
+                  } {!this.props.user.movieHash.includes(id) &&
+                    <IconButton tooltip="Save Movie!"
+                      onTouchTap={(event)=> {
+                        this.props.dispatch(saveMovie({ original_title,
+                                id,
+                                poster_path,
+                                overview,
+                                popularity,
+                                vote_average,
+                                vote_count
+                              }))
+                      }}
+                      >
+                      <ActionHeart />
+                    </IconButton>
+                  }
                 </div>
               </div>
             </div>
