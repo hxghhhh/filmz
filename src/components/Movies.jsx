@@ -6,6 +6,9 @@ import Movie from './Movie.jsx'
 import LinearProgress from 'material-ui/LinearProgress';
 
 const styles = {
+          root: {
+            backgroundColor:'#F5F5F5'
+          },
           movies:{
              display:'flex',
              flexDirection:'row',
@@ -21,7 +24,7 @@ export default class Movies extends React.Component {
     const { movies, moviesFetching, moviesFetched} = this.props;
     console.log(movies)
     return (
-          <div style={{backgroundColor:'#F5F5F5'}}>
+          <div style={styles.root}>
              { moviesFetching &&
                <div>
                  <LinearProgress mode="indeterminate" />
