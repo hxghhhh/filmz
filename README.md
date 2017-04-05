@@ -1,4 +1,4 @@
-# Films
+# Filmz
 React/Redux app to help you find out what movie you should watch this weekend
 
 ## Installation
