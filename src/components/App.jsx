@@ -33,8 +33,6 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate(prevProps){
-    console.log('Updating...')
-    console.log(this.props.savedMovies)
     if (this.props.filter !== prevProps.filter) {
         const {sort_by, genre, year} = this.props.filter
         this.props.dispatch(fetchFilteredMovie(sort_by, genre, year))

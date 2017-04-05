@@ -22,7 +22,6 @@ const styles = {
 export default class Movies extends React.Component {
   render() {
     const { movies, moviesFetching, moviesFetched} = this.props;
-    console.log(movies)
     return (
           <div style={styles.root}>
              { moviesFetching &&
