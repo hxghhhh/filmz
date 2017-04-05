@@ -4,7 +4,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import ActionHeartFilled from 'material-ui/svg-icons/action/favorite';
 import ActionHeart from 'material-ui/svg-icons/action/favorite-border';
-import { saveMovie } from '../actions/user.actions'
+import { saveMovie, removeMovie } from '../actions/user.actions'
 import { connect } from 'react-redux';
 import { red500 } from 'material-ui/styles/colors';
 
@@ -77,7 +77,7 @@ export default class Movie extends React.Component {
                     <IconButton tooltip="Saved!"
                        onTouchTap={(event)=> {
                          // remove movie from collection
-                        // this.props.dispatch(removeMovie())
+                         this.props.dispatch(removeMovie(id))
                        }}
                       >
                       <ActionHeartFilled color={red500} />
