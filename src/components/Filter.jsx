@@ -67,7 +67,6 @@ export default class Filter extends React.Component {
 
   render() {
     const {year, sort_by, genre} = this.props.filter
-    console.log(this.props.filter)
     return (
           <div style={styles.card}>
               <Dropdown

@@ -1,9 +1,13 @@
-import axios from 'axios';
-import config from '../config'
-
-export function saveMovie(movie){
+export function saveMovie(movie) {
   return {
     type: 'SAVE_MOVIE',
-    payload: movie
-  }
+    payload: movie,
+  };
+}
+
+export function removeMovie(id) {
+  return {
+    type: 'REMOVE_MOVIE',
+    payload: id,
+  };
 }

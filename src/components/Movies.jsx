@@ -19,6 +19,12 @@ const styles = {
            }
 }
 
+@connect((store) => {
+  return {
+    user: store.user, // placed here to update collection on change
+  }
+})
+
 export default class Movies extends React.Component {
   render() {
     const { movies, moviesFetching, moviesFetched} = this.props;
