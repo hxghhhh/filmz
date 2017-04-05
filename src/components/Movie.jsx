@@ -86,18 +86,19 @@ export default class Movie extends React.Component {
                       <ActionHeartFilled color={red500} />
                     </IconButton>
                   } {!this.props.user.movieHash.includes(id) &&
+                    // add movie from collection
                     <IconButton tooltip="Save Movie!"
                       onTouchTap={(event)=> {
-                        this.props.dispatch(saveMovie({ original_title,
-                                id,
-                                poster_path,
-                                overview,
-                                popularity,
-                                vote_average,
-                                vote_count
-                              }))
-                      }}
-                      >
+                        this.props.dispatch(
+                          saveMovie({ original_title,
+                                      id,
+                                      poster_path,
+                                      overview,
+                                      popularity,
+                                      vote_average,
+                                      vote_count
+                                  }))
+                                }}>
                       <ActionHeart />
                     </IconButton>
                   }

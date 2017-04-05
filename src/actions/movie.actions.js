@@ -15,5 +15,5 @@ export function fetchFilteredMovie(sort_by='', genre='', year=''){
   return {
     type:'FETCH_MOVIE',
     payload: axios.get(`${config.baseUrl}/discover/movie?api_key=${config.movieApiKey}&${sort_by_q}${genre_q}${year_q}`)
-  }
+  };
 }
