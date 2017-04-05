@@ -74,7 +74,7 @@ export default class Movie extends React.Component {
                 </div>
                 <div>
                   { this.props.user.movieHash.includes(id) &&
-                    <IconButton tooltip="Save Movie!"
+                    <IconButton tooltip="Saved!"
                        onTouchTap={(event)=> {
                          // remove movie from collection
                         // this.props.dispatch(removeMovie())
