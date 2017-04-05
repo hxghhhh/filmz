@@ -58,8 +58,6 @@ export default class Movie extends React.Component {
             vote_count
           } = this.props;
 
-    // console.log([1, 2, 3].includes(2))
-    // console.log(this.props.user.movieHash.includes(id))
     return (
           <div style={styles.card}>
             <img style={styles.img}
