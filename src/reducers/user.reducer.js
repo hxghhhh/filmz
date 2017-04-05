@@ -7,6 +7,7 @@ const initialState = {
     name:null,
     age:null
   },
+  savedMovies:[]
 }
 
 export default (state=initialState, action) => {
@@ -21,6 +22,10 @@ export default (state=initialState, action) => {
     }
     case "FETCH_MOCK_USER": {
       return {...state.user, user: action.payload, fetched:true};
+      break;
+    }
+    case "SAVE_MOVIE": {
+      return {...state, savedMovies:[...state.savedMovies, action.payload]};
       break;
     }
   }

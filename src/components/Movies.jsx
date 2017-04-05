@@ -5,24 +5,32 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import Movie from './Movie.jsx'
 import LinearProgress from 'material-ui/LinearProgress';
 
+const styles = {
+          root: {
+            backgroundColor:'#F5F5F5'
+          },
+          movies:{
+             display:'flex',
+             flexDirection:'row',
+             flexWrap: 'wrap',
+             justifyContent:'center',
+             marginLeft: 20,
+             marginRight: 20,
+           }
+}
+
 export default class Movies extends React.Component {
   render() {
-    const { user, movies, userFetched, moviesFetching, moviesFetched} = this.props;
+    const { movies, moviesFetching, moviesFetched} = this.props;
     return (
-          <div>
+          <div style={styles.root}>
              { moviesFetching &&
                <div>
                  <LinearProgress mode="indeterminate" />
                </div>
-             } {!moviesFetching && moviesFetched &&
-               <div style={{display:'flex',
-                          flexDirection:'row',
-                          flexWrap: 'wrap',
-                          justifyContent:'center',
-                          marginLeft: 20,
-                          marginRight: 20,
-                        }}>
-                 { movies.results.map((movie) => {
+             } {!moviesFetching && moviesFetched && movies.length != 0 &&
+               <div style={styles.movies}>
+                 {movies.results.map((movie) => {
                     return (<Movie key={movie.id} {...movie}/>);
                   })
                  }
