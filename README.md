@@ -13,3 +13,13 @@ to start the app run enter this command below
 $ yarn start
 ```
 Then goto `localhost:8080` to see it in browser
+
+
+## Why themoviedb > omdbapi
+themoviedb had a better api in my opinion, especially with the discover endpoint. Creating queries were more straight forward and wanted to do queries based upon actors. With omdbapi I would of had to do alot of processing on my end to get the data working. The frontend should be a lot of the leg work when it comes to processing data/queries.
+
+## Completed
+- [X] User can search for movies based on year, genre, ratings/popularity
+- [X] User can save movies that are in the discovery tab
+- [X] Created bundles using webpack
+- [X] Build with React/Redux
