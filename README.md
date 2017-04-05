@@ -27,5 +27,6 @@ themoviedb had a better api in my opinion, especially with the discover endpoint
 - [X] User can save movies that are in the discovery tab (without persistent)
 - [X] Created bundles using webpack
 - [X] Build with React/Redux
+- [ ] Reference recent searches
 - [ ] Autocomplete search bar that user can manually search for movies on by title, actor, etc
 - [ ] Save user sessions w/ favorites
