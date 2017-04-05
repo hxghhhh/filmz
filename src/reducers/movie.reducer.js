@@ -5,26 +5,28 @@ const initialState = {
   error: null
 }
 
-export default (state=initialState, action) => {
-  switch(action.type) {
+export default (state = initialState, action) => {
+  switch (action.type) {
     case 'FETCH_MOVIE_PENDING': {
-      return {...state,
-        fetching: true}
-      break;
+      return { ...state,
+        fetching: true
+      }
     }
-    case "FETCH_MOVIE_FULFILLED": {
-      return {...state,
+    case 'FETCH_MOVIE_FULFILLED': {
+      return { ...state,
         fetched: true,
         fetching: false,
-        data: action.payload }
-      break;
+        data: action.payload,
+      }
     }
-    case "FETCH_MOVIE_REJECTED": {
-      return {...state,
+    case 'FETCH_MOVIE_REJECTED': {
+      return { ...state,
         fetching: false,
-        error: action.payload}
-      break;
+        error: action.payload,
+      }
+    }
+    default: {
+      return state;
     }
   }
-  return state;
 }

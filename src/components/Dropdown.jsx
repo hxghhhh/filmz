@@ -3,7 +3,6 @@ import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { connect } from 'react-redux';
-import { inc } from '../actions';
 import Select from 'react-select';
 import {fetchFilteredMovie } from '../actions/movie.actions'
 
