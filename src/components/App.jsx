@@ -4,8 +4,9 @@ import { fetchNowPlayingMovie, fetchFilteredMovie } from '../actions/movie.actio
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import IconButton from 'material-ui/IconButton'
-import ActionHome from 'material-ui/svg-icons/action/home';
+import DiscoverMovie from 'material-ui/svg-icons/action/search';
+import ActionHeartFilled from 'material-ui/svg-icons/action/favorite';
+import { red500 } from 'material-ui/styles/colors';
 import Movies from './Movies.jsx';
 import Filter from './Filter.jsx';
 
@@ -42,9 +43,9 @@ export default class App extends React.Component {
   render() {
     const { user, movies, moviesFetching, moviesFetched} = this.props;
     return (
-      <MuiThemeProvider>
-        <Tabs inkBarStyle={{background: 'blue'}} tabItemContainerStyle={{backgroundColor:'white'}}>
-          <Tab label="Discover" style={styles.tab}>
+      <MuiThemeProvider> 
+        <Tabs inkBarStyle={{background: '#EF5B5B'}} tabItemContainerStyle={{backgroundColor:'#20A39E'}}>
+          <Tab style={styles.tab} icon={<DiscoverMovie color={red500}/>}>
             <Filter {...this.props}/>
             <Movies
               movies={this.props.movies}
@@ -52,7 +53,7 @@ export default class App extends React.Component {
               moviesFetched = {moviesFetched}
             />
           </Tab>
-          <Tab label="Favorites" style={styles.tab}>
+          <Tab style={styles.tab} icon={<ActionHeartFilled color={red500} />}>
             <Movies
               movies={{results:this.props.savedMovies}}
               moviesFetching = {false}

@@ -16,15 +16,20 @@ var styles = {
     backgroundColor:'white',
     marginTop: 5,
     marginBottom: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    fontFamily: 'roboto',
   },
   movieInfo: {
-    width: 250,
+    width: 240,
     padding:10
   },
   overview: {
+    display: '-webkit-box',
+    WebkitLineClamp: '12',
+    WebkitBoxOrient: 'vertical',
     color:'#AAAAAA',
-    fontSize: 14
+    fontSize: 14,
+    overflow: 'hidden',
   },
   img:{
     borderRadius: 3
